@@ -3,7 +3,6 @@ let container = document.getElementById("container");
 const button = document.getElementById("play");
 let box = "";
 
-
 // Salvare il valore della difficolta scelta dal giocatore
 let levels = document.getElementById("levels");
 let difficulty = "";
@@ -37,6 +36,7 @@ button.addEventListener("click",
       div.addEventListener("click", addEventClick)
     }
     let click = [];
+
     // Creo funzione per ascoltatore di eventi al click
     function addEventClick (){
 
@@ -46,12 +46,12 @@ button.addEventListener("click",
       // Salvo il valore dei box all'interno di questa variabile
       let numberBox = parseInt(this.innerText);
 
-      
-      // Faccio in modo che quando si preme su una casella ed essa sia una bomba, la casella diventi rossa, altrimenti diventi azzur
+      // Faccio in modo che quando si preme su una casella ed essa sia una bomba, la casella diventi rossa, altrimenti diventi azzurra
       if (numbersBomb.includes(numberBox)){
-        this.classList.add("bomb");
         alert("Hai perso");
+        // Far spuntare il punteggio ottenuto
         alert("Il tuo punteggio è: " + click.length);
+        endGame();
       } else{
         this.classList.add("active");
         // Salvo in un array tutti i click effettuati
@@ -69,7 +69,18 @@ button.addEventListener("click",
         numbersBomb.push(number);
       }
     }
-    
+
+    // Creo una funzione per la fine del gioco
+    function endGame (){
+      let allBox = document.getElementsByClassName("box");
+      for(let i = 0; i < allBox.length; i++){
+        // E dopo aver perso far spuntare tutte le altre bombe
+        if(numbersBomb.includes(parseInt(allBox[i].innerText))){
+          allBox[i].classList.add("bomb");
+        }
+        allBox[i].removeEventListener("click", addEventClick);
+      }
+    }
   }
 )
 
@@ -80,5 +91,4 @@ function randomNumber (max , min){
 }
 
 
-// Far spuntare il punteggio ottenuto
-// E dopo aver perso far spuntare tutte le altre bombe
+
