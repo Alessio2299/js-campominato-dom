@@ -1,0 +1,86 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Commands header */
+header{
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.logo h1{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 30px;
+}
+.logo img{
+  vertical-align: middle;
+  margin-right: 20px;
+}
+.form{
+  display: flex;
+  align-items: center;
+}
+#levels{
+  width: 200px;
+}
+#play{
+  width: 60px;
+  margin-left: 5px;
+}
+.form span{
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+/* Commands Main */
+main{
+  background-color: rgb(127, 255,	212);
+  padding: 50px 0;
+  height: 650px;
+}
+#container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 550px;
+  height: 550px;
+  margin: auto;
+  align-content: flex-start;
+}
+.box{
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.active{
+  background-color: rgb(100,	149,	236);
+  box-shadow: 2px 2px 20px #000;
+}
+.box-big{
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+}
+.box-small{
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+}
+.box-medium{
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+}
+
+/* Commands Footer */
+footer{
+  width: 80%;
+  margin: auto;
+}
+footer span{
+  line-height: 50px;
+}
+.bomb{
+  background-color: red;
+}
