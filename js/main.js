@@ -34,9 +34,9 @@ button.addEventListener("click",
       div.innerText += [i + 1];
       div.classList.add(box);
       div.classList.add("box");
-
       div.addEventListener("click", addEventClick)
     }
+    let click = [];
     // Creo funzione per ascoltatore di eventi al click
     function addEventClick (){
 
@@ -46,16 +46,19 @@ button.addEventListener("click",
       // Salvo il valore dei box all'interno di questa variabile
       let numberBox = parseInt(this.innerText);
 
-      let click = [];
+      
       // Faccio in modo che quando si preme su una casella ed essa sia una bomba, la casella diventi rossa, altrimenti diventi azzur
       if (numbersBomb.includes(numberBox)){
-        this.classList.add("bomb")
+        this.classList.add("bomb");
+        alert("Hai perso");
+        alert("Il tuo punteggio è: " + click.length);
       } else{
         this.classList.add("active");
+        // Salvo in un array tutti i click effettuati
         click.push(numberBox);
       }
     }
-    
+
     // Creo un array per salvare in numeri generati per le bombe
     const numbersBomb = [];
     // Faccio generare 16 numeri casuali
@@ -66,7 +69,7 @@ button.addEventListener("click",
         numbersBomb.push(number);
       }
     }
-    console.log(numbersBomb);
+    
   }
 )
 
@@ -77,7 +80,5 @@ function randomNumber (max , min){
 }
 
 
-// Salvare in un array tutti i click effettuati
-// Premendo una bomba finisce la partia
 // Far spuntare il punteggio ottenuto
 // E dopo aver perso far spuntare tutte le altre bombe
