@@ -49,6 +49,7 @@ main{
   height: 550px;
   margin: auto;
   align-content: flex-start;
+  position: relative;
 }
 .box{
   border: 2px solid #000;
@@ -72,7 +73,24 @@ main{
   width: calc(100% / 9);
   height: calc(100% / 9);
 }
-
+.bomb{
+  background-color: red;
+}
+#container span{
+  font-size: 20px;
+  padding-top: 10px;
+}
+.style{
+  position: absolute;
+  top: 50%;
+  font-size: 80px;
+  background-color: #ffffffd6;
+  border-radius: 10px;
+  padding: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 /* Commands Footer */
 footer{
   width: 80%;
@@ -80,7 +98,4 @@ footer{
 }
 footer span{
   line-height: 50px;
-}
-.bomb{
-  background-color: red;
 }

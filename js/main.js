@@ -37,6 +37,12 @@ button.addEventListener("click",
     }
     let click = [];
 
+
+    let score = document.createElement("span");
+    let gameOver = document.createElement("h1");
+    container.appendChild(score);
+    container.appendChild(gameOver);
+
     // Creo funzione per ascoltatore di eventi al click
     function addEventClick (){
 
@@ -46,17 +52,19 @@ button.addEventListener("click",
       // Salvo il valore dei box all'interno di questa variabile
       let numberBox = parseInt(this.innerText);
 
+      
       // Faccio in modo che quando si preme su una casella ed essa sia una bomba, la casella diventi rossa, altrimenti diventi azzurra
       if (numbersBomb.includes(numberBox)){
-        alert("Hai perso");
-        // Far spuntare il punteggio ottenuto
-        alert("Il tuo punteggio è: " + click.length);
+        gameOver.classList.add("style");
+        gameOver.innerHTML = "Hai perso";
         endGame();
       } else{
         this.classList.add("active");
         // Salvo in un array tutti i click effettuati
         click.push(numberBox);
       }
+        // Far spuntare il punteggio ottenuto
+        score.innerHTML = `Il tuo punteggio attuale è : ${click.length}`;
     }
 
     // Creo un array per salvare in numeri generati per le bombe
